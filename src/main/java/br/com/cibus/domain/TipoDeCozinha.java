@@ -1,7 +1,11 @@
 package br.com.cibus.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Entity
 public class TipoDeCozinha {
 
@@ -23,22 +27,6 @@ public class TipoDeCozinha {
     public TipoDeCozinha(Long id, String nome) {
         this(nome);
         this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     @Override
