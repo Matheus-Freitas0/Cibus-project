@@ -2,7 +2,6 @@ package br.com.cibus.dto.response;
 
 import br.com.cibus.domain.Restaurante;
 import br.com.cibus.domain.TipoDeCozinha;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
