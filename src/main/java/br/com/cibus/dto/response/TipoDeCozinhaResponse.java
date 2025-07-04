@@ -1,5 +1,6 @@
-package br.com.cibus.tipodecozinha;
+package br.com.cibus.dto.response;
 
+import br.com.cibus.domain.TipoDeCozinha;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TipoDeCozinhaResponse {

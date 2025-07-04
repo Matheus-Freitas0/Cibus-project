@@ -1,5 +1,9 @@
-package br.com.cibus.tipodecozinha;
+package br.com.cibus.controller;
 
+import br.com.cibus.dto.request.NovoTipoDeCozinhaRequest;
+import br.com.cibus.dto.response.TipoDeCozinhaResponse;
+import br.com.cibus.repository.TipoDeCozinhaRepository;
+import br.com.cibus.domain.TipoDeCozinha;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,5 +33,11 @@ public class TipoDeCozinhaController {
         TipoDeCozinha novoTipoDeCozinha = novoTipoDeCozinhaRequest.toEntity();
         tipoDeCozinhaRepository.save(novoTipoDeCozinha);
         return new ResponseEntity<>(new TipoDeCozinhaResponse(novoTipoDeCozinha), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/restaurante-tipos-de-cozinha")
+    public List<TipoDeCozinha> getRestauranteTipoDeCozinha() {
+        return tipoDeCozinhaRepository.findAll();
+
     }
 }

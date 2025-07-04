@@ -1,5 +1,6 @@
-package br.com.cibus.tipodecozinha;
+package br.com.cibus.dto.request;
 
+import br.com.cibus.domain.TipoDeCozinha;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.Size;
 

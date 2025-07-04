@@ -1,8 +1,8 @@
 package br.com.cibus;
 
-import br.com.cibus.tipodecozinha.TipoDeCozinha;
-import br.com.cibus.tipodecozinha.TipoDeCozinhaController;
-import br.com.cibus.tipodecozinha.TipoDeCozinhaRepository;
+import br.com.cibus.domain.TipoDeCozinha;
+import br.com.cibus.controller.TipoDeCozinhaController;
+import br.com.cibus.repository.TipoDeCozinhaRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class TipoDeCozinhaControllerTest {
     @MockBean
     private TipoDeCozinhaRepository tipoDeCozinhaRepository;
 
-    private ObjectMapper jsonParser = new ObjectMapper();
+    private final ObjectMapper jsonParser = new ObjectMapper();
 
     @Test
     void deveCriarNovoTipoDeCozinha() throws Exception {

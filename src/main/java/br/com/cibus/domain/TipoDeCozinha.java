@@ -1,4 +1,4 @@
-package br.com.cibus.tipodecozinha;
+package br.com.cibus.domain;
 
 import jakarta.persistence.*;
 
