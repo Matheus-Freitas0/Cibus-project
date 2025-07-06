@@ -1,43 +1,45 @@
-# README
+# Cibus — Sistema de Entrega de Comida (Exercício Concluído)
 
 ### Contexto
 
-O Cibus é uma aplicação de entrega de comida.
+Este projeto é um **exercício proposto na internet**, com o objetivo de simular o desenvolvimento de uma aplicação de entrega de comida chamada **Cibus**, voltada para cidades pequenas do interior do Brasil.
 
-Queremos concorrer com as soluções do mercado, em cidades pequenas do interior do Brasil.
+> ✅ **Este exercício foi completamente implementado com sucesso**, incluindo todos os requisitos propostos.
 
-Pra começar, só aceitamos cartões:  débito, crédito e vale refeição.
+### Regras de Negócio
 
-Ainda não teremos delivery. O próprio restaurante cuida da entrega.
+- Aceitamos apenas pagamentos com **Cartão de Crédito**, **Cartão de Débito**, **Vale Refeição** ou **PIX**.
+- O próprio restaurante é responsável pela entrega dos pedidos.
+- Existem três perfis de usuários:
+    - **Cliente**: realiza pedidos.
+    - **Dono do restaurante**: gerencia dados do restaurante e altera status de pedidos.
+    - **Administrador do sistema**: gerencia dados básicos e aprova restaurantes.
 
-Teremos três perfis de usuário:
+### Tecnologias Utilizadas
 
-- o cliente, que efetua um pedido.
-- o dono do restaurante, que mantém os dados do restaurante e muda os status de pedidos pendentes.
-- o administrador do Cibus, que mantém os dados básicos do sistema e aprova novos restaurantes.
+- **Java 21**
+- **Spring Boot 3**
+- **Spring Data JPA**
+- **Bean Validation**
+- **Flyway DB**
+- **MySQL 8+**
+- **Maven 3+**
+- **Docker Compose** para infraestrutura
+- **Coleções Postman** para testes
 
-### Sobre as tecnologias escolhidas
+### Funcionalidades Implementadas
 
-Usamos as seguintes tecnologias:
+- CRUD completo de **restaurantes**
+    - Listagem, detalhamento, criação, atualização e exclusão
+- CRUD completo de **formas de pagamento**
+    - Incluindo os tipos: cartão de crédito, débito, vale-refeição e PIX
+- Relatório: **Quantidade de restaurantes por tipo de cozinha**
+    - Inclusão de tipos com zero restaurantes
+- Cadastro e listagem de **tipos de cozinha**
+- Mapeamento de entidades com JPA, validações e integração com banco de dados
+- Scripts SQL de criação e carga inicial para facilitar testes locais
 
-- Java 21
-- Maven 3+
-- Spring Boot 3
-- Bean Validation
-- Spring Data JPA
-- Flyway DB, para migrations
-- MySQL 8+
-- Docker Compose para executar a infra
-- Coleções do Postman para testes
+### Observações
 
-### O que já está feito no projeto
-
-- Definição da estrutura e carga inicial das tabelas de Tipo de Cozinha e Restaurantes
-- Endpoints de listagem e criação de Tipo de Cozinha em uma API REST
-- Alguns testes de integração
-
-### O que você deve fazer
-
-- Um endpoint na API REST com um relatório contendo a quantidade de restaurantes cadastrados por tipo de cozinha. Caso não haja restaurantes, a quantidade deve ser 0.
-- Um CRUD de restaurantes com listagem, detalhamento, adição, atualização e remoção de restaurantes
-- Um CRUD para as formas de pagamento do restaurante entre: Cartão de Crédito, Cartão de Débito, Vale Refeição ou PIX
+- Este projeto foi desenvolvido com fins educacionais, como forma de consolidar conhecimentos em Java, Spring Boot, JPA e boas práticas de API REST.
+- A estrutura foi organizada em **camadas (controller, domain, repository, dto)**, com uso de boas práticas como DTOs de entrada/saída e versionamento lógico.
