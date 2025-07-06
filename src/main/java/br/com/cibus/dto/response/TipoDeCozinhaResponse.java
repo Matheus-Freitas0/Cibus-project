@@ -2,7 +2,9 @@ package br.com.cibus.dto.response;
 
 import br.com.cibus.domain.TipoDeCozinha;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
+@Data
 public class TipoDeCozinhaResponse {
 
     @JsonProperty

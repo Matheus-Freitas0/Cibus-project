@@ -36,6 +36,7 @@ public class RestauranteController {
     public void excluir(@PathVariable Long id) {
         restauranteRepository.deleteById(id);
     }
+
     @PostMapping("/salvar")
     @ResponseStatus(HttpStatus.CREATED)
     public RestauranteResponse salvar(@RequestBody RestauranteRequest restaurante) {

@@ -1,7 +1,6 @@
-package br.com.cibus;
+package br.com.cibus.controller;
 
 import br.com.cibus.domain.TipoDeCozinha;
-import br.com.cibus.controller.TipoDeCozinhaController;
 import br.com.cibus.dto.response.RestaurantePorTipoCozinhaResponse;
 import br.com.cibus.repository.TipoDeCozinhaRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
