@@ -2,8 +2,11 @@ package br.com.cibus;
 
 import br.com.cibus.domain.TipoDeCozinha;
 import br.com.cibus.controller.TipoDeCozinhaController;
+import br.com.cibus.dto.response.RestaurantePorTipoCozinhaResponse;
 import br.com.cibus.repository.TipoDeCozinhaRepository;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -63,6 +66,30 @@ public class TipoDeCozinhaControllerTest {
 
         verify(tipoDeCozinhaRepository).findAll();
         verifyNoMoreInteractions(tipoDeCozinhaRepository);
+    }
+
+    @Test
+    @DisplayName("Deve retornar um relatório com a quantidade de restaurantes por tipo de cozinha")
+    void deveObterRestaurantesPorTipoCozinha() throws Exception {
+        when(tipoDeCozinhaRepository.relatorioQuantidadePorTipoDeCozinha())
+                .thenReturn(List.of(
+                        new RestaurantePorTipoCozinhaResponse("Italiana", 5L),
+                        new RestaurantePorTipoCozinhaResponse("Japonesa", 3L)
+                ));
+
+        MvcResult mvcResult = mockMvc.perform(get("/relatorios/restaurantes-por-tipo-cozinha"))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        String responseJson = mvcResult.getResponse().getContentAsString();
+        List<RestaurantePorTipoCozinhaResponse> responseData = jsonParser.readValue(
+                responseJson,
+                new TypeReference<List<RestaurantePorTipoCozinhaResponse>>() {}
+        );
+
+        assertThat(responseData).hasSize(2);
+        assertThat(responseData.getFirst().getNome()).isEqualTo("Italiana");
+        assertThat(responseData.getFirst().getQuantidade()).isEqualTo(5L);
     }
 
 }
